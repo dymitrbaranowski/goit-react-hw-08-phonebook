@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContacts } from 'redux/operations';
+import { Filter } from 'components/Filter/Filter';
+import { selectContacts } from 'redux/auth/selectors';
+import { addContacts } from 'redux/auth/operations';
 import propTypes from 'prop-types';
 import { Form, FormBtn, FormItem } from './ContactForm.styled';
-
 
 export const ContactForm = () => {
   const [name, setName] = useState('');

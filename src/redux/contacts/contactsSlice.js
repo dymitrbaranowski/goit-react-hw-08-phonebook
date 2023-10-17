@@ -1,22 +1,25 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchContacts, addContacts, deleteContacts } from './operations';
+
+import {
+  fetchContacts,
+  addContacts,
+  deleteContacts,
+} from 'redux/contacts/operations';
 
 const getActions = type =>
   isAnyOf(fetchContacts[type], addContacts[type], deleteContacts[type]);
 
-
 const initialState = { items: [], isLoading: false, error: null };
-
 const contactsSlice = createSlice({
-  name: 'contacts', 
-  initialState, 
+  name: 'contacts',
+  initialState,
   extraReducers: builder =>
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.items = action.payload; 
+        state.items = action.payload;
       })
       .addCase(addContacts.fulfilled, (state, action) => {
-        state.items.unshift(action.payload); 
+        state.items.unshift(action.payload);
       })
       .addCase(deleteContacts.fulfilled, (state, action) => {
         const index = state.items.findIndex(
@@ -28,15 +31,14 @@ const contactsSlice = createSlice({
         state.isLoading = true;
       })
       .addMatcher(getActions('rejected'), (state, action) => {
-        state.isLoading = false; 
-        state.error = action.payload; 
+        state.isLoading = false;
+        state.error = action.payload;
       })
       .addMatcher(getActions('fulfilled'), state => {
-        state.isLoading = false; 
-        state.error = null; 
+        state.isLoading = false;
+        state.error = null;
       }),
 });
 
 export const { addContact, deleteContact } = contactsSlice.actions;
-
 export const contactsReducer = contactsSlice.reducer;

@@ -1,11 +1,8 @@
-import React from 'react';
 import propTypes from 'prop-types';
 import { FilterName } from './Filter.styled';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
-import { changeFilter } from 'redux/filterSlice';
-
+import { selectFilter } from 'redux/filter/selectors';
+import { changeFilter } from 'redux/filter/filterSlice';
 
 export const Filter = () => {
   const value = useSelector(selectFilter);
@@ -21,11 +18,7 @@ export const Filter = () => {
     <div>
       <label>
         Find contacts by name
-        <FilterName
-          type="text"
-          value={value}
-          onChange={onChange}
-        />
+        <FilterName type="text" value={value} onChange={onChange} />
       </label>
     </div>
   );
