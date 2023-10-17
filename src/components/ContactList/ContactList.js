@@ -3,7 +3,6 @@ import React from 'react';
 import { ContactListItemBtn } from './ContactList.styled';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectVisibleContacts } from 'redux/auth/selectors';
 import { deleteContacts } from 'redux/contacts/operations';
 
 export const ContactList = () => {
