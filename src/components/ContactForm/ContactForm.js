@@ -67,8 +67,8 @@ export const ContactForm = () => {
           type="tel"
           name="number"
           pattern="\+\d{12}"
-          minlength="13"
-          maxlength="13"
+          minLength="13"
+          maxLength="13"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="Enter phone number"
@@ -85,5 +85,5 @@ export const ContactForm = () => {
 export default ContactForm;
 
 ContactForm.propTypes = {
-  handleSubmit: propTypes.func.isRequired,
+  handleFormSubmit: propTypes.func.isRequired,
 };
