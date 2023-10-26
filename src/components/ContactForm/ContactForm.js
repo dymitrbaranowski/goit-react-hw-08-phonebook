@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Filter } from 'components/Filter/Filter';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContacts } from 'redux/contacts/operations';
-import propTypes from 'prop-types';
 import { Form, FormBtn, FormItem } from './ContactForm.styled';
 
 export const ContactForm = () => {
@@ -83,7 +82,3 @@ export const ContactForm = () => {
 };
 
 export default ContactForm;
-
-ContactForm.propTypes = {
-  handleFormSubmit: propTypes.func.isRequired,
-};
